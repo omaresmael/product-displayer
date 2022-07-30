@@ -45,8 +45,11 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "migrate-to-laravel-9": [
+            "php artisan make:migration create_categories_table",
+            "php artisan make:migration create_products_table"
         ]
-
     },
     "extra": {
         "laravel": {
