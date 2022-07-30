@@ -1,0 +1,33 @@
+<?php
+
+use App\Models\Category;
+use App\Models\Product;
+
+beforeEach(function(){
+   $this->parentCategory = Category::factory()->create();
+   $this->subCategory1 = Category::factory()->create([
+       'parent_id' => $this->parentCategory->id,
+   ]);
+    $this->subCategory2 = Category::factory()->create([
+        'parent_id' => $this->parentCategory->id,
+    ]);
+    $this->product1 = Product::factory()->create([
+       'category_id' => $this->subCategory1->id,
+    ]);
+    $this->product2 = Product::factory()->create([
+        'category_id' => $this->subCategory2->id,
+    ]);
+
+
+});
+it('renders products for parent category', function () {
+    $products = Category::find($this->parentCategory)->parentProdust();
+    $this->assertCount(2,$products);
+})->only();
+
+it('renders products for sub category', function () {
+    $product = Category::find($this->subCategory1)->products();
+    $this->assertCount(1,$product);
+});
+
+
