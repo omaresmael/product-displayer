@@ -21,12 +21,12 @@ beforeEach(function(){
 
 });
 it('renders products for parent category', function () {
-    $products = Category::find($this->parentCategory)->parentProdust();
+    $products = Category::ProductsForParent($this->parentCategory->id);
     $this->assertCount(2,$products);
 })->only();
 
 it('renders products for sub category', function () {
-    $product = Category::find($this->subCategory1)->products();
+    $product = Category::find($this->subCategory1->id)->products;
     $this->assertCount(1,$product);
 });
 
