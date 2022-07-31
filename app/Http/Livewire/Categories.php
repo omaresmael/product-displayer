@@ -3,17 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Categories extends Component
 {
     public array $categories;
-    public function mount()
+    public function mount(): void
     {
         $this->categories = Category::with('subCategories:id,name,parent_id')
             ->where('parent_id',null)->get()->toArray();
     }
-    public function render()
+    public function render(): View
     {
         return view('livewire.categories');
     }
