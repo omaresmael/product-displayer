@@ -6,7 +6,7 @@
         <div id="categories">
             @livewire('categories')
         </div>
-        <div id="products" class="grid grid-cols-3 gap-4 grow">
+        <div id="products" class="grid grid-cols-3 gap-4 grow h-14">
             @forelse($products as $product)
                 <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$product['name']}}</p>
