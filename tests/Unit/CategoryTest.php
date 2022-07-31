@@ -30,4 +30,4 @@ it('fetches parent categories with their subcategories', function(){
     $this->assertCount(2,$categories[0]['sub_categories']);
     $this->assertCount(3,$categories[1]['sub_categories']);
 
-})->only();
+});
