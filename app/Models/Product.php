@@ -26,6 +26,8 @@ class Product extends Model
         })->toArray();
 
         return self::query()
-            ->whereIn('category_id', $subIds)->with('category:id,name')->get();
+            ->whereIn('category_id', $subIds)
+            ->select(['id','name','price','category_id'])
+            ->with('category:id,name')->get();
     }
 }
