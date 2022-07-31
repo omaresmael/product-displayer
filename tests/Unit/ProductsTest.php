@@ -21,7 +21,7 @@ beforeEach(function(){
 
 });
 it('fetches products for parent category', function () {
-    $products = Category::ProductsForParent($this->parentCategory->id);
+    $products = Product::ProductsForParent($this->parentCategory->id);
     $this->assertCount(2,$products);
 });
 

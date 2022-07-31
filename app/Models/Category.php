@@ -21,16 +21,4 @@ class Category extends Model
         return $this->hasMany(SubCategory::class,'parent_id');
     }
 
-    public static function productsForParent(int $parentId): Collection
-    {
-        $subCategories = self::query()
-            ->where('parent_id', $parentId)->get();
-
-        $subIds = $subCategories->map(function ($category){
-           return $category->id;
-        })->toArray();
-
-        return Product::query()
-            ->whereIn('category_id', $subIds)->get();
-    }
 }

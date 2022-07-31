@@ -10,8 +10,14 @@
             <ul>
                 <li>{{$product['name']}}</li>
                 <ul>
-                    <li>{{$product['category']['name']}}</li>
-                    <li>{{$product['price']}}</li>
+                    <li>name: {{$product['category']['name']}}</li>
+                    <li>price: {{$product['price']}}</li>
+                    <li><button wire:click="getDescription({{$product['id']}})">Show Description</button></li>
+                    @if(key_exists('description', $product))
+                    <li>Desc: {{$product['description']}}</li>
+                    @endif
+
+
                 </ul>
             </ul>
         @empty
